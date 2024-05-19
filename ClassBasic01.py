@@ -18,7 +18,7 @@ p1 = Person('홍길동', 25)
 p2 = Person('김청수', 24)
 print(f'이름 = {p1.name}, 나이 = {p1.age}')
 print(f'이름 = {p2.name}, 나이 = {p2.age}')
-p1.printPerson()
+p1.printPerson() # Person.printPerson(p1)와 같다
 p2.printPerson()
 
 p3 = Person('내친구', 26)

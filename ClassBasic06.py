@@ -11,7 +11,10 @@ class B:
 class C:
     def m(self):
         print("In Class C")
-        # super().m()
+        try:
+            super().m()
+        except BaseException:
+            print('더이상 부모가 없습니다.')
 
 class X(A, B):
     def m(self):
@@ -37,14 +40,17 @@ print(a)         # [<class '__main__.Z'>, <class '__main__.A'>, <class '__main__
 
 obj = Z()
 obj.m()
-# 결과 =========================
+# 결과 
+# ===========================================
 # In Class Z
 # In Class X
 # In Class A
 # In Class Y
 # In Class B
 # In Class C
-# ==============================
+# 더이상 부모가 없습니다.
+# ===========================================
+
 
 class Red:
     def printColor(self):
@@ -69,9 +75,10 @@ class Yellow:
 class Black:
     def printColor(self):
         print("Color is ==> Black")
-        super().printColor()
-
-
+        try:
+            super().printColor()
+        except BaseException :
+            print('더이상 부모가 없습니다.')
 
 
 class Drawing1(Red, Yellow, Black):
@@ -96,8 +103,6 @@ class Drawing4(Green, Blue, Yellow, Black):
         super().printColor()
 
 
-
-
 class WallPaper1(Drawing1, Drawing2, Drawing3):
     def printColor(self):
         print("WallPaper is ==> WallPaper1")
@@ -114,7 +119,6 @@ class WallPaper3(Drawing2, Drawing3, Green):
         super().printColor()
 
 
-
 class MyRoom(WallPaper1, WallPaper2, WallPaper3):
     def printColor(self):
         print("MyRoom ....")
@@ -129,7 +133,8 @@ print(MyRoom.mro())
 room = MyRoom()
 room.printColor()
 
-# 결과 =========================
+# 결과 
+# ===========================================
 # MyRoom ....
 # WallPaper is ==> WallPaper1
 # Drawing is ==> Drawing1
@@ -143,6 +148,7 @@ room.printColor()
 # Color is ==> Blue
 # Color is ==> Yellow
 # Color is ==> Black
-# ==============================
+# 더이상 부모가 없습니다.
+# ===========================================
 
 # 파이썬3은 mro(Method Resolution Order) 알고리즘은  C3 Linearization 에 대해 알아보자

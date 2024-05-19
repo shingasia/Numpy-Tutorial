@@ -114,13 +114,26 @@ a = set('fewqefdasqqrdafqweqefas')
 b = set('zvczvvzbzxdsvzszsdfvczsadf')
 print(a) # {'d', 'r', 'q', 'a', 'w', 's', 'e', 'f'}
 print(b) # {'d', 'v', 'z', 'b', 'a', 'x', 's', 'c', 'f'}
-print(a - b) # {'q', 'w', 'e', 'r'}
+print(a - b)
+print(a - b\
+    == a.difference(b)\
+    == set.difference(a, b))   # True
 print(a | b) # {'c', 'q', 'w', 's', 'r', 'v', 'a', 'x', 'z', 'f', 'd', 'b', 'e'}
+print(a | b\
+    == a.union(b)\
+    == set.union(a, b))        # True
 print(a & b) # {'d', 's', 'a', 'f'}
+print(a & b\
+    == a.intersection(b)\
+    == set.intersection(a, b)) # True
 print(a ^ b) # {'c', 'q', 'v', 'r', 'w', 'x', 'z', 'b', 'e'} exclusive or(XOR)
+print(a ^ b\
+    == set.symmetric_difference(a, b)\
+    == a.symmetric_difference(b)) # True
 
-
-
+# 부분집합(Subset) / 확대집합(Superset)
+print({'z','v','d'}.issubset(b))   # True
+print(b.issuperset({'z','v','d'})) # True
 
 # < 딕셔너리 > =========================================================================================
 # 딕셔너리는 키(key)로 인덱싱하는데 키는 모든 불변형을 사용할 수 있다(문자열, 숫자들은 항상 키가 될 수 있다.)
@@ -133,7 +146,17 @@ dict2 = {'name': 'GwangHyeon', 'age':25, 'grade':{'math': 95, 'science': 85, 'en
 dict3 = dict([('Olivia',22), ('Charlotte',23), ('Isabella', 21)]) # 생성자로 만들기1
 dict4 = dict() # 생성자로 만들기2
 
-print(dict1, dict2, dict3, dict4, sep=' AND ')
+# 딕셔너리에 요소 추가
+dict2['grade']['geography'] = 85
+dict3['Ava'] = 25
+dict3.update({'Grace':23, 'Olivia':20, 'Emily':22}) # 기존 데이터 수정 및 추가
+
+# 딕셔너리에 요소 삭제
+dict3.pop('Charlotte')
+del dict3['Olivia']
+
+
+print(dict1, dict2, dict3, dict4, sep='\nAND ')
 
 
 # 딕셔너리의 루프 테크닉

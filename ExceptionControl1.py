@@ -79,3 +79,21 @@ print(sys.exc_info())
 
 
 
+try:
+    a = {'key1':'value1','key2':'value2'}
+    a.pop('key3')
+    print(repr(a))
+    pass
+except (ImportError, ModuleNotFoundError, \
+        SyntaxError, IndentationError, \
+        TypeError, ValueError, \
+        ZeroDivisionError, IndexError, KeyError) as e1:
+    print('무언가 오류 발생'+str(e1))
+    pass
+except BaseException as e1:
+    print(e1)
+    pass
+else:
+    print('오류가 없을 경우에만 수행됩니다.')
+
+

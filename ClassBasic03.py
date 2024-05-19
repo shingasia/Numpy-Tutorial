@@ -53,10 +53,11 @@ class Animation:
             소녀 바이올리니스트와의 만남을 계기로 다시금 피아노와 마주한다")
 
 ani = Animation()
-print(ani)
-print(ani.memo.__self__)
-print(ani.memo.__func__)
-
+print(ani)                 # <__main__.Animation object at 0x000001ECD575B650>
+print(ani.memo.__self__)   # <__main__.Animation object at 0x000001ECD575B650>
+print(ani.memo.__func__)   # <function Animation.memo at 0x000001ECD5A439C0>
+print(ani.memo())          # ani.memo.__func__(ani) 또는 Animation.memo(ani) 으로도 메서드 호출이 가능하다.
+print(ani.__class__)       # 인스턴스가 속한 클래스 <class '__main__.Animation'>
 # 인스턴스 메서드 객체도 어트리뷰트를 갖는다. m.__self__는 메서드 m()과 결합한 인스턴스 객체이고, m.__func__는 메서드에 상응하는 함수 객체이다.
 
 
